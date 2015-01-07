@@ -6,7 +6,7 @@
 	Forked from Restless123 (Kai Graßnick) (https://github.com/Restless123/Owncloud-GPXviewer).
 	Based on LeafletJS (http://leafletjs.com/) and GPX plugin by Maxime Petazzoni (https://github.com/mpetazzoni/leaflet-gpx).
 
-	This app uses highcharts (http://www.highcharts.com/).</description>
+	This is using highcharts (http://www.highcharts.com/).</description>
 	<version>1.0</version>
 	<licence>AGPL</licence>
 	<author>Frank Wiesemann</author>

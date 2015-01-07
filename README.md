@@ -3,7 +3,7 @@ GPX-Viewer for OwnCloud v 7.x
 
 This Plugin allows you to show .GPX files directly in the Browser. It's a fork from the Plugin by [Restless123][3].
 
-This Plugin is using [LeafletJS][0] and a fork of the [GPX plugin by Maxime Petazzoni][2].
+This Plugin is using [LeafletJS][0], a fork of the [GPX plugin by Maxime Petazzoni][2] and [highcharts][4].
 
 ==================================
 
@@ -45,3 +45,4 @@ Normal-Installation:
 [1]: http://owncloud.org/
 [2]: https://github.com/mpetazzoni/leaflet-gpx
 [3]: https://github.com/Restless123/Owncloud-GPXviewer
+[4]: http://www.highcharts.com/
