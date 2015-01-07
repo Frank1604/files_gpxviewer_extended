@@ -8,7 +8,7 @@
 
 	This is using highcharts (http://www.highcharts.com/).</description>
 	<version>1.0</version>
-	<licence>AGPL</licence>
+	<licence>CC BY-NC</licence>
 	<author>Frank Wiesemann</author>
 	<require>7.0</require>
 </info>
