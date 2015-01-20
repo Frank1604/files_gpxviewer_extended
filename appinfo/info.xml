@@ -2,7 +2,7 @@
 <info>
 	<id>files_gpxviewer_extended</id>
 	<name>Extended GPX Viewer</name>
-	<description>Extended GPX viewer for ownCloud 7.0.x.
+	<description>Extended GPX viewer for ownCloud 7.0.3.
 	Forked from Restless123 (Kai Graßnick) (https://github.com/Restless123/Owncloud-GPXviewer).
 	Based on LeafletJS (http://leafletjs.com/) and GPX plugin by Maxime Petazzoni (https://github.com/mpetazzoni/leaflet-gpx).
 
@@ -10,5 +10,5 @@
 	<version>1.0</version>
 	<licence>CC BY-NC</licence>
 	<author>Frank Wiesemann</author>
-	<require>7.0</require>
+	<require>7.0.3</require>
 </info>
