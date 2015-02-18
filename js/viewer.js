@@ -19,11 +19,7 @@ function viewGpx(file, data) {
 					if ($('#preview').length) {
 						cMain.css({position: 'absolute', top: '45px', height: ($(window).height() - 45) + 'px'});
 						cChart.css('width', ($(window).width() - 280) + 'px');
-						location = filename.ownerDocument.location.href + '&download';
-						if ($('#fileList').length) {
-							location += '&files=' + file.toString();
-						}
-						else {
+						if (!$('#fileList').length) {
 							cClose.addClass('hidden');
 						}
 					}
