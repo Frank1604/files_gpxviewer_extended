@@ -14,6 +14,10 @@
 	border: 1px solid #ccc;
 	border-radius:3px;
 }
+#gpx-canvas .leaflet-control-layers-base label {
+	margin: 0;
+	border:none;
+}
 #gpx-canvas table td, #gpx-canvas table th, #gpx-canvas caption  {
 	padding: 0 10px;
 }

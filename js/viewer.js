@@ -19,7 +19,11 @@ function viewGpx(file, data) {
 					if ($('#preview').length) {
 						cMain.css({position: 'absolute', top: '45px', height: ($(window).height() - 45) + 'px'});
 						cChart.css('width', ($(window).width() - 280) + 'px');
-						if (!$('#fileList').length) {
+						location = filename.ownerDocument.location.href + '&download';
+						if ($('#fileList').length) {
+							location += '&files=' + file.toString();
+						}
+						else {
 							cClose.addClass('hidden');
 						}
 					}
@@ -35,7 +39,32 @@ function viewGpx(file, data) {
 
 					// Karte
 					var map = new L.Map('gpx-canvas', {center: new L.LatLng(53, 8), zoom: 5});
-					new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+					var Mapnik_OSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+					}).addTo(map);
+					var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
+						attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+						subdomains: '1234'
+					});
+					var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+						attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+					});
+					var Esri_WorldTopoMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+						maxZoom: 16,
+						attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+					});
+					var Thunderforest_OpenCycleMap = L.tileLayer('http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
+						attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+					});
+
+					map.addControl(new L.Control.Layers({
+						"Mapnik OSM":Mapnik_OSM,
+						"MapQuest OSM":MapQuestOpen_OSM,
+						"Esri Satellite":Esri_WorldImagery,
+						"Esri Topographic":Esri_WorldTopoMap,
+						"Thunderforest OpenCycleMap":Thunderforest_OpenCycleMap
+					}, null, {position:'topleft'}));
+
 					new L.GPX(location, {async: true}).on('loaded', function (e) {
 						loadMask.remove();
 						// Variablen
@@ -113,6 +142,7 @@ function viewGpx(file, data) {
 						lTable.addRow([t('files_gpxviewer_extended', 'Duration') + ':', millisecondsToTime(gpx.get_moving_time())]);
 						lTable.addRow([t('files_gpxviewer_extended', 'Distance') + ':', (gpx.get_distance() / 1000).toFixed(2).replace('.', ',') + ' km']);
 						lTable.addRow(['&empty; ' + t('files_gpxviewer_extended', 'Pace') + ':', millisecondsToTime(gpx.get_moving_pace()) + ' min']);
+						lTable.addRow(['&empty; ' + t('files_gpxviewer_extended', 'Speed') + ':', gpx.get_moving_speed().toFixed(1) + ' km/h']);
 						if (gpxAvHr) {
 							lTable.addRow(['&empty; ' + t('files_gpxviewer_extended', 'Heartrate') + ':', gpxAvHr + ' min<sup>-1</sup>'])
 						}
