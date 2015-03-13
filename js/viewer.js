@@ -1,6 +1,12 @@
 function viewGpx(file, data) {
-	var dir = data.dir;
-	var location = data.fileList.getDownloadUrl(file, dir);
+	var location = '';
+	if (data === undefined) {
+		var token = $('#sharingToken').val();
+		location = OC.generateUrl('/s/'+token+'/download', null);
+	}
+	else {
+		location = data.fileList.getDownloadUrl(file, data.dir);
+	}
 	var loadMask = $('<div class="mask" style="background-image: url(' + OC.imagePath('core', 'loading.gif') + '); background-repeat: no-repeat;"></div>').appendTo('body');
 
 	OC.addStyle('files_gpxviewer_extended', 'leaflet');
@@ -19,11 +25,7 @@ function viewGpx(file, data) {
 					if ($('#preview').length) {
 						cMain.css({position: 'absolute', top: '45px', height: ($(window).height() - 45) + 'px'});
 						cChart.css('width', ($(window).width() - 280) + 'px');
-						location = filename.ownerDocument.location.href + '&download';
-						if ($('#fileList').length) {
-							location += '&files=' + file.toString();
-						}
-						else {
+						if (!$('#fileList').length) {
 							cClose.addClass('hidden');
 						}
 					}
@@ -39,21 +41,22 @@ function viewGpx(file, data) {
 
 					// Karte
 					var map = new L.Map('gpx-canvas', {center: new L.LatLng(53, 8), zoom: 5});
-					var Mapnik_OSM = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					var protok = window.location.protocol;
+					var Mapnik_OSM = L.tileLayer(protok + '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 					}).addTo(map);
-					var MapQuestOpen_OSM = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
+					var MapQuestOpen_OSM = L.tileLayer(protok + '//otile{s}' + (protok == 'https:' ? '-s' : '') + '.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
 						attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 						subdomains: '1234'
 					});
-					var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+					var Esri_WorldImagery = L.tileLayer(protok + '//server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 						attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 					});
-					var Esri_WorldTopoMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+					var Esri_WorldTopoMap = L.tileLayer(protok + '//server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
 						maxZoom: 16,
 						attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
 					});
-					var Thunderforest_OpenCycleMap = L.tileLayer('http://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
+					var Thunderforest_OpenCycleMap = L.tileLayer(protok + '//{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png', {
 						attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 					});
 
@@ -276,11 +279,12 @@ function closeGpxViewer() {
 }
 
 $(document).ready(function () {
-	if (typeof OCA !== 'undefined'
-			&& typeof OCA.Files !== 'undefined'
-			&& typeof OCA.Files.fileActions !== 'undefined'
-	) {
-		var mime = 'application/gpx';
+	var mime = 'application/gpx';
+
+	if (typeof FileActions !== 'undefined' && FileActions !== 'undefined') {
+		FileActions.register(mime, 'View', OC.PERMISSION_READ, '', viewGpx);
+		FileActions.setDefault(mime, 'View');
+	} else if (typeof OCA !== 'undefined' && typeof OCA.Files !== 'undefined' && typeof OCA.Files.fileActions !== 'undefined') {
 		OCA.Files.fileActions.register(mime, 'View', OC.PERMISSION_READ, '', viewGpx);
 		OCA.Files.fileActions.setDefault(mime, 'View');
 	}

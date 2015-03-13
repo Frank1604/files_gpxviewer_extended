@@ -7,7 +7,7 @@
 	Based on LeafletJS (http://leafletjs.com/) and GPX plugin by Maxime Petazzoni (https://github.com/mpetazzoni/leaflet-gpx).
 
 	This is using highcharts (http://www.highcharts.com/).</description>
-	<version>1.1</version>
+	<version>1.2</version>
 	<licence>CC BY-NC</licence>
 	<author>Frank Wiesemann</author>
 	<require>7.0.3</require>
