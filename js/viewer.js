@@ -207,7 +207,7 @@ function viewGpx(file, data) {
 									}, style: {color: customColors.orange}
 								},
 								gridLineWidth: 0,
-								title: {text: 'Pace', style: {color: customColors.orange}},
+								title: {text: t('files_gpxviewer_extended', 'Pace'), style: {color: customColors.orange}},
 								tickPixelInterval: 30,
 								reversed: true
 							}, {
