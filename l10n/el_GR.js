@@ -9,7 +9,7 @@ OC.L10N.register(
 		'Distance' : 'Απόσταση',
 		'Pace'  : 'Ρυθμός',
 		'Heartrate' : 'Σφυγμοί',
-		'Altitude' : 'Ανάβαση',
+		'Total Ascend' : 'Ανάβαση',
 		'Height' : 'Υψόμετρο',
 		'Lap times' : 'Χρόνοι γύρων',
 		'Lap time' : 'Χρόνος γύρου',

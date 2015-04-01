@@ -9,7 +9,7 @@ OC.L10N.register(
 		'Distance' : 'Distanza',
 		'Pace'  : 'Ritmo',
 		'Heartrate' : 'Battito cardiaco',
-		'Altitude' : 'Altitudine',
+		'Total Ascend' : 'Salita',
 		'Height' : 'Altitudine',
 		'Lap times' : 'Tempi giro',
 		'Lap time' : 'Tempo giro',

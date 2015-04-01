@@ -149,7 +149,7 @@ function viewGpx(file, data) {
 						if (gpxAvHr) {
 							lTable.addRow(['&empty; ' + t('files_gpxviewer_extended', 'Heartrate') + ':', gpxAvHr + ' min<sup>-1</sup>'])
 						}
-						lTable.addRow([t('files_gpxviewer_extended', 'Altitude') + ':', (elebounds.max - elebounds.min).toFixed(0) + ' m']);
+						lTable.addRow([t('files_gpxviewer_extended', 'Total Ascend') + ':', (elebounds.max - elebounds.min).toFixed(0) + ' m']);
 						$('<label></label>').append(lTable.getTable()).appendTo(cLegend);
 						var splitTable = new Table(t('files_gpxviewer_extended', 'Lap times'));
 						splitTable.addThead(['Kilometer', 'Pace', 'Speed']);
