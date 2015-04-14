@@ -226,6 +226,7 @@ function viewGpx(file, data) {
 									s += ', ' + t('files_gpxviewer_extended', 'Time') + ': ' + millisecondsToTime(trackPoints[tpIndex[this.points[0].point.index]].meta.time - trackPoints[0].meta.time) + '</b>';
 									s += '<br/>' + this.points[0].series.name + ': ' + this.points[0].y.toFixed(0) + ' m';
 									s += '<br/>' + this.points[1].series.name + ': ' + millisecondsToTime(this.points[1].y) + ' min';
+									s += '<br/>' + t('files_gpxviewer_extended', 'Speed') + ': ' + (3600000 / this.points[1].y).toFixed(2) + ' km/h';
 									if (gpxAvHr) {
 										s += '<br/>' + this.points[2].series.name + ': ' + this.points[2].y + ' min<sup>-1</sup>'
 									}
@@ -244,7 +245,7 @@ function viewGpx(file, data) {
 								type: 'spline',
 								color: customColors.orange,
 								data: speedPoints
-							}, {name: 'HR', type: 'spline', yAxis: 2, color: customColors.purple, data: hrPoints}]
+							}, {name: t('files_gpxviewer_extended', 'Heartrate'), type: 'spline', yAxis: 2, color: customColors.purple, data: hrPoints}]
 						});
 						var chart = cChart.find('label').highcharts();
 						chart.xAxis[0].options.startOnTick = false;
