@@ -133,9 +133,9 @@ function viewGpx(file, data) {
 						splitPoints.shift();
 
 						// Legende
-						var lTable = new Table('Trackname: ' + gpx.get_name());
+						var lTable = new Table(t('files_gpxviewer_extended', 'Trackname') + ': ' + gpx.get_name());
 						if (gpxAutor) {
-							lTable.addToCaption('<br/>Autor: ' + gpxAutor)
+							lTable.addToCaption('<br/>' + t('files_gpxviewer_extended', 'Author') + ': ' + gpxAutor)
 						}
 						if (gpxDesc) {
 							lTable.addToCaption('<br/>' + t('files_gpxviewer_extended', 'Description') + ': ' + gpxDesc)
@@ -152,7 +152,7 @@ function viewGpx(file, data) {
 						lTable.addRow([t('files_gpxviewer_extended', 'Total Ascend') + ':', (elebounds.max - elebounds.min).toFixed(0) + ' m']);
 						$('<label></label>').append(lTable.getTable()).appendTo(cLegend);
 						var splitTable = new Table(t('files_gpxviewer_extended', 'Lap times'));
-						splitTable.addThead(['Kilometer', 'Pace', 'Speed']);
+						splitTable.addThead([t('files_gpxviewer_extended', 'Kilometer'), t('files_gpxviewer_extended', 'Pace'), t('files_gpxviewer_extended', 'Speed')]);
 						splitTable.addRowCss(['text-align:center;', null, 'text-align:right;']);
 						$.each(splitPoints, function (k, v) {
 							splitTable.addRow([(v.distance / 1000).toFixed(1), v.pace, v.speed + ' km/h']);
@@ -241,7 +241,7 @@ function viewGpx(file, data) {
 								color: customColors.green,
 								data: elevationPoints
 							}, {
-								name: 'Pace',
+								name: t('files_gpxviewer_extended', 'Pace'),
 								type: 'spline',
 								color: customColors.orange,
 								data: speedPoints
