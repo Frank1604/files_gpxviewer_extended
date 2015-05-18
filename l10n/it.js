@@ -2,6 +2,7 @@ OC.L10N.register(
     "files_gpxviewer_extended",
     {
 		'Close' : 'Chiudi',
+		'Author' : 'Autore',
 		'Description' : 'Descrizione',
 		'Date'  : 'Data',
 		'Start' : 'Inizio',
@@ -14,6 +15,7 @@ OC.L10N.register(
 		'Lap times' : 'Tempi giro',
 		'Lap time' : 'Tempo giro',
 		'Time'  : 'Tempo',
-		'Speed' : 'Velocit&agrave;'
+		'Speed' : 'Velocit&agrave;',
+		'Kilometer': 'Chilometro'
 	},
 "nplurals=2; plural=(n != 1);");
