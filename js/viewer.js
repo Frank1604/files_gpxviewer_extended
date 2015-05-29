@@ -250,11 +250,6 @@ function viewGpx(file, data) {
 						var chart = cChart.find('label').highcharts();
 						chart.xAxis[0].options.startOnTick = false;
 						chart.xAxis[0].options.endOnTick = false;
-						chart.yAxis[0].setExtremes(gpx.get_moving_pace() - 120000, gpx.get_moving_pace() + 120000);
-						chart.yAxis[1].setExtremes(Math.abs(elebounds.min - (elebounds.min % 20) - 40), elebounds.max - (elebounds.max % 20) + 40);
-						if (gpxAvHr) {
-							chart.yAxis[2].setExtremes(50, 150)
-						}
 						setTimeout(function () {
 							chart.yAxis[0].update()
 						}, 500);
