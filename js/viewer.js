@@ -73,7 +73,7 @@ function viewGpx(file, data) {
 						// Variablen
 						var gpx = e.target;
 						var trackPoints = gpx.get_trackpoints();
-						var elebounds = gpx.get_ele_bounds();
+						var elegain = gpx.get_elevation_gain();
 						var gpxDesc = gpx.get_desc();
 						var gpxAutor = gpx.get_author();
 						var gpxAvHr = gpx.get_average_hr();
@@ -149,7 +149,7 @@ function viewGpx(file, data) {
 						if (gpxAvHr) {
 							lTable.addRow(['&empty; ' + t('files_gpxviewer_extended', 'Heartrate') + ':', gpxAvHr + ' min<sup>-1</sup>'])
 						}
-						lTable.addRow([t('files_gpxviewer_extended', 'Total Ascend') + ':', (elebounds.max - elebounds.min).toFixed(0) + ' m']);
+						lTable.addRow([t('files_gpxviewer_extended', 'Total Ascend') + ':', elegain.toFixed(0) + ' m']);
 						$('<label></label>').append(lTable.getTable()).appendTo(cLegend);
 						var splitTable = new Table(t('files_gpxviewer_extended', 'Lap times'));
 						splitTable.addThead([t('files_gpxviewer_extended', 'Kilometer'), t('files_gpxviewer_extended', 'Pace'), t('files_gpxviewer_extended', 'Speed')]);
@@ -250,11 +250,6 @@ function viewGpx(file, data) {
 						var chart = cChart.find('label').highcharts();
 						chart.xAxis[0].options.startOnTick = false;
 						chart.xAxis[0].options.endOnTick = false;
-						chart.yAxis[0].setExtremes(gpx.get_moving_pace() - 120000, gpx.get_moving_pace() + 120000);
-						chart.yAxis[1].setExtremes(Math.abs(elebounds.min - (elebounds.min % 20) - 40), elebounds.max - (elebounds.max % 20) + 40);
-						if (gpxAvHr) {
-							chart.yAxis[2].setExtremes(50, 150)
-						}
 						setTimeout(function () {
 							chart.yAxis[0].update()
 						}, 500);
