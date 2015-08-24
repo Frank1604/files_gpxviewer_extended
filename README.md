@@ -15,7 +15,9 @@ HowTo Use
 This App modifies the `mimetypes.list.php` (`lib/private/mimetypes.list.php`) to enable .gpx support
 Please check the Permissions for writing, at the moment the Installationroutine does **NOT** care about success or fail while overwrite the file.
 
-If you **DON'T** want that the installer to modifies your `mimetypes.list.php`, create a file called `installed` located in the app-folder `sys` (`apps/files_gpxviewer_extended/sys/`). This prevents the app to run the automatic-installation.
+Attention: When installing this app, oc_filecache is flushed and this breaks all shares.
+
+If you **DON'T** want that the installer to modifies your `mimetypes.list.php`, create a file called `installed` located in the app-folder `sys` (`apps/files_gpxviewer_extended/sys/`). This prevents the app to run the automatic-installation and flushing oc_filecache.
 
 If you want to add the gpx support by yourself:
 
