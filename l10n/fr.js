@@ -7,6 +7,7 @@ OC.L10N.register(
  		'Description' : 'Description', 
  		'Date'  : 'Date', 
  		'Start' : 'D&eacute;but', 
+ 		'Moving Time' : 'Temps d&eacute;placement', 
  		'Duration' : 'Temps &eacute;coul&eacute;', 
  		'Distance' : 'Distance', 
  		'Pace'  : 'Allure', 
