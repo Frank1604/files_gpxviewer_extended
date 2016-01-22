@@ -15,9 +15,12 @@ To get this working with OC8.2 you have to add an entry in your /config/mimetype
 "gpx": ["application/gpx"]
 
 If this file dont exist, create it. It shoud look like:
+
 	```
 {
+
 "gpx": ["application/gpx"]
+
 }
 	```
 
