@@ -12,13 +12,16 @@ HowTo Use
 ---------
 **OC8.2**
 To get this working with OC8.2 you have to add an entry in your /config/mimetypemapping.json
+
+```
 "gpx": ["application/gpx"]
+```
 
 If this file dont exist, create it. It shoud look like:
 
 ```
 {
-"gpx": ["application/gpx"]
+	"gpx": ["application/gpx"]
 }
 ```
 
