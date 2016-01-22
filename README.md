@@ -17,7 +17,7 @@ To get this working with OC8.2 you have to add an entry in your /config/mimetype
 "gpx": ["application/gpx"]
 ```
 
-If this file dont exist, create it. It shoud look like:
+If this file don't exist, create it. It should look like:
 
 ```
 {
