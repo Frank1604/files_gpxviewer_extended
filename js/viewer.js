@@ -142,7 +142,8 @@ function viewGpx(file, data) {
 						}
 						lTable.addRow([t('files_gpxviewer_extended', 'Date') + ':', trackPoints[0].meta.time.toLocaleDateString()]);
 						lTable.addRow([t('files_gpxviewer_extended', 'Start') + ':', trackPoints[0].meta.time.toLocaleTimeString()]);
-						lTable.addRow([t('files_gpxviewer_extended', 'Duration') + ':', millisecondsToTime(gpx.get_moving_time())]);
+						lTable.addRow([t('files_gpxviewer_extended', 'Moving Time') + ':', millisecondsToTime(gpx.get_moving_time())]);
+						lTable.addRow([t('files_gpxviewer_extended', 'Duration') + ':', millisecondsToTime(gpx.get_total_time())]);
 						lTable.addRow([t('files_gpxviewer_extended', 'Distance') + ':', (gpx.get_distance() / 1000).toFixed(2).replace('.', ',') + ' km']);
 						lTable.addRow(['&empty; ' + t('files_gpxviewer_extended', 'Pace') + ':', millisecondsToTime(gpx.get_moving_pace()) + ' min']);
 						lTable.addRow(['&empty; ' + t('files_gpxviewer_extended', 'Speed') + ':', gpx.get_moving_speed().toFixed(1) + ' km/h']);
