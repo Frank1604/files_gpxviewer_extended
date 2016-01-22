@@ -1,3 +1,11 @@
+## [1.5] - 2016-01-22
+### Added
+- new translations: czech, french, galician
+- add the moving time with the get_moving_time
+
+### Fixed
+- change the duration with the get_total_time
+
 ## [1.4] - 2015-05-18
 ### Added
 - new translation: spanish (thanks to shoden)

@@ -10,6 +10,16 @@ This Plugin is using [LeafletJS][0], a fork of the [GPX plugin by Maxime Petazzo
 
 HowTo Use
 ---------
+**OC8.2**
+To get this working with OC8.2 you have to add an entry in your /config/mimetypemapping.json
+"gpx": ["application/gpx"]
+
+If this file dont exist, create it. It shoud look like:
+{
+"gpx": ["application/gpx"]
+}
+
+Then running "php occ files:scan --all
 
 ** **IMPORTANT** **
 This App modifies the `mimetypes.list.php` (`lib/private/mimetypes.list.php`) to enable .gpx support

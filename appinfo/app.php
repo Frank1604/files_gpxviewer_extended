@@ -1,3 +1,7 @@
 <?php
+namespace OCA\Files_Gpxviewer_Extended\AppInfo;
+
 require_once (__DIR__ . '/../sys/installer.php');
-OCP\Util::addScript('files_gpxviewer_extended', 'viewer' );
+
+use OCP\Util;
+Util::addScript('files_gpxviewer_extended', 'viewer' );
