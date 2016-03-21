@@ -1,27 +1,36 @@
-#gpx-canvas {
+/* force full height on public template */
+*, html {
+	margin:0;
+	padding:0;
+}
+#body-public #content {
+    height: 100%;
+}
+#gpx_canvas {
 	position:relative;
 	width:100%;
 	height:100%;
 }
-#gpx-canvas table {
+#gpx_canvas table {
 	width: 100%;
 	margin-bottom:10px;
 }
-#gpx-canvas label, #gpx_charts label {
+#gpx_canvas label, #gpx_charts label {
 	display:block;
 	margin:10px 10px 10px 20px;
 	background:rgba(255, 255, 255, 0.8);
 	border: 1px solid #ccc;
 	border-radius:3px;
 }
-#gpx-canvas .leaflet-control-layers-base label {
+#gpx_canvas .leaflet-control-layers-base label {
 	margin: 0;
 	border:none;
 }
-#gpx-canvas table td, #gpx-canvas table th, #gpx-canvas caption  {
-	padding: 0 10px;
+#gpx_canvas table td, #gpx_canvas table th, #gpx_canvas caption  {
+	font-size:12px;
+	padding: 0 10px 0 0;
 }
-#gpx-canvas caption {
+#gpx_canvas caption {
 	text-align:left;
 	white-space:normal;
 	padding-bottom:5px;
@@ -38,6 +47,7 @@
 	height:100%;
     z-index: 10;
 	transition:right 0.7s;
+	font-size:12px;
 }
 #gpx_charts {
     background-color: rgba(255, 255, 255, 0.5);
@@ -64,7 +74,7 @@
 	background-image:url("../img/right.png");
 	right:0;
 }
-#gpx-close {
+#gpx_close {
 	position: absolute;
 	top:0;
 	left:0;
@@ -77,6 +87,6 @@
 	cursor:pointer;
 	transition:background 0.5s;
 }
-#gpx-close:hover {
+#gpx_close:hover {
     background-color: rgba(255, 255, 255, 1);
 }

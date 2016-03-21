@@ -1,3 +1,7 @@
+## [1.6] - 2016-03-21
+### Fixed
+- shared file doesn't show map tiles
+
 ## [1.5] - 2016-01-22
 ### Added
 - new translations: czech, french, galician
