@@ -16,11 +16,8 @@
 
 		hide: function() {
 			$('#gpxframe').remove();
-			if ($('#isPublic').val() && $('#filesApp').val()){
-				$('#controls').removeClass('hidden');
-			}
-
 			FileList.setViewerMode(false);
+			$('#controls').removeClass('hidden');
 		},
 
 		/**
