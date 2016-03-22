@@ -98,12 +98,10 @@
 
 })(OCA);
 
-// Doesn't work with IE below 9
 if(!$.browser.msie || ($.browser.msie && $.browser.version >= 9)){
 	OC.Plugins.register('OCA.Files.FileList', OCA.FilesGpxViewer.PreviewPlugin);
 }
 
-// FIXME: Hack for single public file view since it is not attached to the fileslist
 $(document).ready(function(){
 	// Doesn't work with IE below 9
 	if(!$.browser.msie || ($.browser.msie && $.browser.version >= 9)){

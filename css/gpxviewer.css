@@ -39,7 +39,7 @@
 }
 #gpx_legend {
     background-color: rgba(255, 255, 255, 0.5);
-	background: url("../img/left.png") no-repeat left center rgba(255, 255, 255, 0.5);
+	background: url("images/left.png") no-repeat left center rgba(255, 255, 255, 0.5);
     position: absolute;
     right:-240px;
     top: 0;
@@ -51,7 +51,7 @@
 }
 #gpx_charts {
     background-color: rgba(255, 255, 255, 0.5);
-	background: url("../img/top.png") no-repeat center 2px rgba(255, 255, 255, 0.5);
+	background: url("images/top.png") no-repeat center 2px rgba(255, 255, 255, 0.5);
 	border-radius:3px;
 	overflow:hidden;
 	position: absolute;
@@ -67,11 +67,11 @@
 	margin:20px 10px 0;
 }
 #gpx_charts.expanded {
-	background-image:url("../img/bottom.png");
+	background-image:url("images/bottom.png");
 	height:200px;
 }
 #gpx_legend.expanded {
-	background-image:url("../img/right.png");
+	background-image:url("images/right.png");
 	right:0;
 }
 #gpx_close {
@@ -82,7 +82,7 @@
 	height:20px;
 	width:20px;
 	border-radius:0 0 3px;
-    background: url("../img/close.png") no-repeat center center;
+    background: url("images/close.png") no-repeat center center;
     background-color: rgba(255, 255, 255, 0.7);
 	cursor:pointer;
 	transition:background 0.5s;
